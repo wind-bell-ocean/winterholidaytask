@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>留言板_注册</title>
+        <style type="text/css">
+            body{
+                 margin: 0px;
+                 padding: 0px;
+                 background-color: rgb(141, 236, 236); 
+                 font-family: 微软雅黑;
+                 font-size: 14px;
+                } 
+            span{ color:rgb(112, 185, 89); }     
+            .txtCenter{ text-align:center;  } 
+            .input_box{
+                        width:350px;
+                        padding-bottom: 15px;
+                        margin: 0 auto;
+                        overflow: hidden;
+                        text-align: center;
+                       }  
+        </style>
+    </head>
+    <body>     
+        <div class="txtCenter">
+            <h1>创建新账户</h1>
+        </div>
+        <div class="txtCenter">
+            <form  method="post"  action="save.php">
+                <div class="input_box">
+                    <label for="username"><span>用户名:</span></label>
+                    <input type="text" name="username" id="username" value="" placeholder="请输入用户名" />
+                </div>
+                <div class="input_box">
+                    <label for="password"><span>密码:</span></label>
+                    <input type="password" name="pass" id="password" value="" placeholder="请输入密码" />
+                </div>
+                </br>
+                <div class="input_box">
+                    <input type="button" class="btn btn-primary" value="注册" id="submit"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="reset" value="重置" name="reset" />
+                </div>
+                </br>
+                <a type="button" class="btn btn-success" href="login.php"/>返回登录</a>
+                </br></br></br>
+                <div class="txtCenter">
+                   <p2>跳过，先看看</p2>
+                </div>
+                </br>
+                <div class="txtCenter">
+                  <a href="E:\百步梯学习工作\留言板任务-寒假\留言板.html" target="_self">游客进入看看留言板的世界</a>
+                </div> 
+            </br></br></br>
+            <p>特别说明： 若无账号登录，以游客身份进入留言板时可浏览留言，但不可以发表留言。祝愿体验愉快！</p>
+            </form>
+        </div>       
+    </body>
+</html>
