@@ -24,7 +24,24 @@ window.onload = function ()
                         }
                         else
                         {
-                            alert("注册失败");
+                            if(data.nickname=="")
+                            {
+                                alert("昵称缺失，注册失败")
+                            }
+                            else
+                            {
+                                if(data.username=="")
+                                {
+                                    alert("用户名缺失，注册失败")
+                                }
+                                else
+                                {
+                                    if(data.password=="")
+                                    {
+                                        alert("密码缺失，注册失败")
+                                    }
+                                }
+                            }
                         }
                     });
                 });

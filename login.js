@@ -22,7 +22,10 @@ window.onload = function login ()
                         }
                         else
                         {
-                            alert("请先登录");
+                            if(data.username=="")
+                            { alert("用户名缺失！") }
+                            if(data.password=="")
+                            { alert("密码缺失！") }
                         }
                     });
                 });

@@ -4,7 +4,7 @@ window.onload = function ()
     var userName = '<?php echo isset($_GET["name"])?$_GET["name"]:"null"; ?>';
     if(userName=="null")
     {
-        location = "login.php";
+        location = "留言板.php";
         $("#submit").on("click",function()
         {
             alert("请先登录再发表留言！")
@@ -16,18 +16,19 @@ window.onload = function ()
         $("#div1").html("欢迎您，<span style='color:red;'>"+userName+"</span>");    
         $("#submit").on("click",function()
         {
-           var noteVal = $("#note").val();
-           if(noteVal=="")
+           var content = $("#note").val();
+           if(content=="")
             {
               alert("留言内容不能为空，请核对！");
               return;
             }
+            var nickname = document.getElementById("nickname");
             var time = getTime();
             var note = 
             {
                "userName":userName,
                "time":time,
-               "noteVal":noteVal
+               "content":content
             }       
             $.post("doAdd.php",note,function(data)
             {
