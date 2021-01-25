@@ -22,26 +22,21 @@ window.onload = function ()
                             alert("注册成功");
                             location = "login";
                         }
-                        else
+                        if(data.nickname=="")
                         {
-                            if(data.nickname=="")
-                            {
-                                alert("昵称缺失，注册失败")
-                            }
-                            else
-                            {
-                                if(data.username=="")
-                                {
-                                    alert("用户名缺失，注册失败")
-                                }
-                                else
-                                {
-                                    if(data.password=="")
-                                    {
-                                        alert("密码缺失，注册失败")
-                                    }
-                                }
-                            }
+                            alert("昵称缺失，注册失败")
+                        }
+                        if(data.username=="")
+                        {
+                            alert("用户名缺失，注册失败")
+                        }
+                        if(data.password=="")
+                        {
+                            alert("密码缺失，注册失败")
+                        }
+                        if(data.sex=="")
+                        {
+                            alert("性别缺失，注册失败")
                         }
                     });
                 });

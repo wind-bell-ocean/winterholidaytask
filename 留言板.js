@@ -48,7 +48,7 @@ window.onload = function ()
                         } 
                         else 
                         {
-                           li.innerHTML = text.value + '<a href="javascript:;" rel="external nofollow" rel="external nofollow" >删除</a>';
+                           li.innerHTML = text.value + <br/> + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + note.nickname + note.time;
                            ul.insertBefore(li, ul.children[0]); 
                         }
                         var removeBtn = document.querySelectorAll('a');
