@@ -16,16 +16,24 @@ window.onload = function login ()
                     console.log(str);
                     $.post("doLogin.php",{"formData":str},function(data)
                     {
-                        if(data=="true")
+                        if(postRequest.status == 402)
                         {
-                            location = "index.php?name="+$("input[name='userName']").val();
+                            alert("用户名或密码错误！")
                         }
                         else
                         {
-                            if(data.username=="")
-                            { alert("用户名缺失！") }
-                            if(data.password=="")
-                            { alert("密码缺失！") }
+                            if(data=="true")
+                            {
+                               location = "index.php?name="+$("input[name='userName']").val();
+                            }
+                            else
+                            {
+                                if(data.username=="")
+                                  { alert("用户名缺失！") }
+                                if(data.password=="")
+                                  { alert("密码缺失！") }
+                            }
+
                         }
                     });
                 });
