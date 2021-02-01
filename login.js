@@ -1,11 +1,9 @@
-window.onload = function fnLogin ()
+window.onload = function ()
 {
-    var BaseURL = '';
-    var getRequest = new XMLHttpRequest();
+    var postRequest = new XMLHttpRequest();
+    var Baseurl = '';
     postRequest.open('post', Baseurl + '/login');
     postRequest.setRequestHeader('content-type', 'application/json'); 
-    var reflect = document.getElementById("reflect_box")
-    var isError = true;
     postRequest.onloadchange = function ()
     {
         if (postRequest.readyState == 4) 
@@ -31,9 +29,15 @@ window.onload = function fnLogin ()
                             else
                             {
                                 if(data.username=="")
-                                  { alert("用户名缺失！") }
+                                { 
+                                    alert("用户名缺失！");
+                                    return; 
+                                }
                                 if(data.password=="")
-                                  { alert("密码缺失！") }
+                                { 
+                                    alert("密码缺失！");
+                                    return;  
+                                }
                             }
 
                         }

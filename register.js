@@ -7,6 +7,7 @@ window.onload = function ()
     var username = document.getElementById(username);
     var password = document.getElementById(password);
     var data = {nickname:"nickname",username:"username",password:"password"};
+    postRequest.setRequestHeader('content-type', 'application/json'); 
     postRequest.send(data);
     postRequest.onreadystatechange = function () 
     {
