@@ -1,9 +1,13 @@
 window.onload = function ()
 {
     var postRequest = new XMLHttpRequest();
-    var Baseurl = '';
-    postRequest.open('post', Baseurl + '/login');
+    var Baseurl = 'http://8.129.238.142';
+    postRequest.open('post', Baseurl + '/login',true);
+    var username = document.getElementById(username);
+    var password = document.getElementById(password);
+    var logindata = {username:"username",password:"password"};
     postRequest.setRequestHeader('content-type', 'application/json'); 
+    postRequest.send(logindata);
     postRequest.onloadchange = function ()
     {
         if (postRequest.readyState == 4) 
@@ -22,18 +26,18 @@ window.onload = function ()
                         }
                         else
                         {
-                            if(data=="true")
+                            if(logindata=="true")
                             {
                                location = "index.php?name="+$("input[name='userName']").val();
                             }
                             else
                             {
-                                if(data.username=="")
+                                if(logindata.username=="")
                                 { 
                                     alert("用户名缺失！");
                                     return; 
                                 }
-                                if(data.password=="")
+                                if(logindata.password=="")
                                 { 
                                     alert("密码缺失！");
                                     return;  
