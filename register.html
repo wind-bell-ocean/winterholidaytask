@@ -26,30 +26,32 @@
         <div class="txtCenter">
             <h1>创建新账户</h1>
         </div>
+        <br/>
         <div class="txtCenter">
             <form  method="post"  action="save.php">
                 <div class="input_box">
+                    <label for="nickname"><span>昵称:</span>&nbsp;&nbsp;&nbsp;</label>
+                    <input type="text" name="nickname" id="nickname" value=" " placeholder="请输入昵称" />
+                </div>
+                <div class="input_box">
                     <label for="username"><span>用户名:</span></label>
-                    <input type="text" name="username" id="username" value="" placeholder="请输入用户名" />
+                    <input type="text" name="username" id="username" value=" " placeholder="请输入用户名" />
                 </div>
                 <div class="input_box">
-                    <label for="username"><span>昵称:</span></label>
-                    <input type="text" name="nickname" id="nickname" value="" placeholder="请输入昵称" />
+                    <label for="password"><span>密码:</span>&nbsp;&nbsp;&nbsp;</label>
+                    <input type="password" name="pass" id="password" value=" " placeholder="请输入密码" />
                 </div>
                 <div class="input_box">
-                    <label for="sex"><span>性别:</span></label>
+                    <label for="sex"><span>性别:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                     <label>男</label>
                     <input type="radio" id="sex" value="1" name="sex" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
                     <label>女</label>
                     <input type="radio" id="sex" value="2" name="sex" />
                 </div>
-                <div class="input_box">
-                    <label for="password"><span>密码:</span></label>
-                    <input type="password" name="pass" id="password" value="" placeholder="请输入密码" />
-                </div>
                 </br>
                 <div class="input_box">
-                    <input type="button" class="btn btn-primary" value="注册" id="submit"/>
+                    <input type="button" class="btn btn-primary" onclick = "onregister()" value="注册" id="submit"/>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="reset" value="重置" name="reset" />
                 </div>

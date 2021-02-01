@@ -1,9 +1,11 @@
-window.onload = function login ()
+window.onload = function fnLogin ()
 {
+    var BaseURL = '';
     var getRequest = new XMLHttpRequest();
-    Baseurl = 'http://thungghuan.xyz:3000';
-    postRequest.open('post', Baseurl + '/session');
-    postRequest.setRequestHeader('content-type', 'application/json');
+    postRequest.open('post', Baseurl + '/login');
+    postRequest.setRequestHeader('content-type', 'application/json'); 
+    var reflect = document.getElementById("reflect_box")
+    var isError = true;
     postRequest.onloadchange = function ()
     {
         if (postRequest.readyState == 4) 

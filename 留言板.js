@@ -1,7 +1,6 @@
 window.onload = function ()
 {
-    getData();    
-    var userName = '<?php echo isset($_GET["name"])?$_GET["name"]:"null"; ?>';
+    var userName = '<?php echo isset($_GET["username"])?$_GET["username"]:"null"; ?>';
     if(userName=="null")
     {
         location = "留言板.php";
@@ -22,7 +21,7 @@ window.onload = function ()
               alert("留言内容不能为空，请核对！");
               return;
             }
-            var nickname = document.getElementById("nickname");
+            var nickName = '<?php echo isset($_GET["nickname"])?$_GET["nickname"]:"null"; ?>';
             var time = getTime();
             var note = 
             {
@@ -48,8 +47,9 @@ window.onload = function ()
                         } 
                         else 
                         {
-                           li.innerHTML = text.value + <br/> + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + note.nickname + note.time;
-                           ul.insertBefore(li, ul.children[0]); 
+                            li.innerHTML = data;
+                            li.innerHTML = text.value + <br/> + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + note.nickname + note.time;
+                            ul.insertBefore(li, ul.children[0]); 
                         }
                         var removeBtn = document.querySelectorAll('a');
                         for (var i = 0; i < removeBtn.length; i++) 
@@ -72,6 +72,7 @@ window.onload = function ()
     
 function getData()
 {
+    var Baseurl = 'http://8.129.238.142';
     postRequest.open('post', Baseurl + '/guestbook');
     postRequest.setRequestHeader('content-type', 'application/json');
     postRequest.send(JSON.stringify(Data));

@@ -1,47 +1,51 @@
 window.onload = function () 
 {
-    var getRequest = new XMLHttpRequest();
-    Baseurl = 'http://thungghuan.xyz:3000'
-    div1 = document.getElementById('div1')
-    getRequest.open('post', Baseurl + '/user');
-    getRequest.send(null);
-    getRequest.onreadystatechange = function () 
+    var postRequest = new XMLHttpRequest();
+    var Baseurl = 'http://8.129.238.142';
+    postRequest.open('post', Baseurl + '/user',true);
+    var nickname = document.getElementById(nickname);
+    var username = document.getElementById(username);
+    var password = document.getElementById(password);
+    var data = {nickname:"nickname",username:"username",password:"password"};
+    postRequest.send(data);
+    postRequest.onreadystatechange = function () 
     {
-        if (getRequest.readyState == 4) 
+        if (postRequest.readyState == 4) 
         {
-            if (getRequest.status == 200) 
+            if (postRequest.status == 200) 
             {
-                $("#submit").on("click",function()
-                {
-                    var str = $("form").serialize();
-                    console.log(str);
-                    $.post("doReg.php",{"formData":str},function(data)
-                    {
-                        if(data=="true")
-                        {
-                            alert("注册成功");
-                            location = "login";
-                        }
-                        if(data.nickname=="")
-                        {
-                            alert("昵称缺失，注册失败")
-                        }
-                        if(data.username=="")
-                        {
-                            alert("用户名缺失，注册失败")
-                        }
-                        if(data.password=="")
-                        {
-                            alert("密码缺失，注册失败")
-                        }
-                        if(data.sex=="")
-                        {
-                            alert("性别缺失，注册失败")
-                        }
-                    });
-                });
-                alert(getRequest.responseText)
+                onregister ();
+                alert(postRequest.responseText);
+            }
+            if (this.status != 200) 
+            {
+                alert( 'error: ' + this.status);
+                return;
             }
         }
     }
+}
+
+function onregister ()
+{
+    var isError = true;
+    if (nickname.value.length == 0) 
+    {
+        alert("昵称缺失，注册失败");
+        isError = false;
+        return;
+    }
+    if (username.value.length == 0) 
+    {
+        alert("用户名缺失，注册失败");
+        isError = false;
+        return;
+    }
+    if (password.value.length == 0) 
+    {
+        alert("密码缺失，注册失败");
+        isError = false;
+        return;
+    }
+    alert("注册成功！");
 }
