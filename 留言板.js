@@ -1,6 +1,15 @@
 window.onload = function ()
 {
+    getData();
+    var getRequest = new XMLHttpRequest();
+    var Baseurl = 'http://8.129.238.142';
+    getRequest.open('get', Baseurl + '/',true);
+    var userName = '<?php echo isset($_GET["nickname"])?$_GET["nickname"]:"null"; ?>';
     var userName = '<?php echo isset($_GET["username"])?$_GET["username"]:"null"; ?>';
+    var userName = '<?php echo isset($_GET["password"])?$_GET["password"]:"null"; ?>';
+    var getdata = {nickname:"nickname",username:"username",password:"password"};
+    getRequest.setRequestHeader('content-type', 'board/json'); 
+    getRequest.send(getdata);
     if(userName=="null")
     {
         location = "留言板.php";
