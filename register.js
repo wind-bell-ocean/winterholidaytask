@@ -1,6 +1,5 @@
 var ms = 5;
-function returnlogin()
-{
+function returnLogin(){
     if(ms>0)
     {
         document.getElementById("but_regist").innerHTML= "注册成功！"+ms+"秒后将跳转到登录界面...<a href='E:\百步梯学习工作\holidaytask\login.html'>直接跳转</a>";
@@ -11,39 +10,34 @@ function returnlogin()
     }
     ms--;
 }
-window.onload = function () 
-{
+
+function regist() {
     var postRequest = new XMLHttpRequest();
-    var Baseurl = 'http://8.129.238.142';
+    var Baseurl = 'http://127.0.0.1:5000';
     postRequest.open('post', Baseurl + '/user',true);
-    var nickname = document.getElementById("nickname");
-    var username = document.getElementById("username");
-    var password = document.getElementById("password");
-    var data = {nickname:"nickname",username:"username",password:"password"};
+    var nickname = document.getElementById("nickname").value;
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    var data = "nickname"+nickname+"username"+username+"password"+password;
     postRequest.setRequestHeader('content-type', 'application/json'); 
     postRequest.send(data);
-    postRequest.onreadystatechange = function () 
-    {
+    postRequest.onreadystatechange = function () {
         if (postRequest.readyState == 4) 
         {
+            onRegister();
             if (postRequest.status == 200) 
             {
-                alert(postRequest.responseText);
-                setInterval(returnLogin,1000);
-                returnlogin(); 
+                returnLogin(); 
             }
             if (this.status != 200) 
             {
-                alert( 'error: ' + this.status);
-                return;
+               confirm(postRequest.responseText)
             }
         }
     }
-    var 
 }
 
-function onregister ()
-{
+function onRegister (){
     if (nickname.value.length == 0) 
     {
         alert("昵称缺失，注册失败");

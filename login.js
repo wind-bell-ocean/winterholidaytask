@@ -1,5 +1,5 @@
 var t = 3;
-function tomessegeboard()
+function toMessageBoard()
 {
     if(t>0)
     {
@@ -11,28 +11,18 @@ function tomessegeboard()
     }
     t--;
 }
-function fnLogin()
-{
-    if (username.value.length == 0) 
-    {
-        alert("用户名缺失，注册失败");
-    }
-    if (password.value.length == 0) 
-    {
-        alert("密码缺失，注册失败");
-    }
-}
-window.onload = function ()
+
+function fnlogin()
 {
     var postRequest = new XMLHttpRequest();
     var Baseurl = 'http://8.129.238.142';
     postRequest.open('post', Baseurl + '/login',true);
     postRequest.setRequestHeader('content-type', 'application/json'); 
-    var username = document.getElementById("username");
-    var password = document.getElementById("password");
-    var data = {username:"username",password:"password"};
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    var data = "username"+username+"password"+password;
     postRequest.send(data);
-    postRequest.onloadchange = function ()
+    postRequest.onloadChange = function ()
     {
         if (postRequest.readyState == 4) 
         {
@@ -43,8 +33,6 @@ window.onload = function ()
             }
             if (postRequest.status == 200) 
             {
-                alert(postRequest.responseText);
-                setInterval(returnLogin,1000);
                 tomessegeboard();
             } 
         }
