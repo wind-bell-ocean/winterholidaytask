@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>    
+    <head>
+        <script src="register.js"></script>
+        <meta charset="UTF-8">
+        <title>留言板</title>
+        <script src="留言板.js"></script>
+        <style type="text/css">
+            body{
+                 margin: 0px;
+                 padding: 0px;
+                 background-color: rgb(221, 243, 241); 
+                 font-family: 微软雅黑;
+                 font-size: 14px;
+            }
+            h{
+                font-family: 微软雅黑;
+                font-size: 30px;
+            }
+            span{ color:rgb(243, 200, 122); } 
+            .txtCenter{ text-align:center; } 
+            .note{
+                   width: 2500px;
+                   height:100px;
+                   font-family: 微软雅黑;
+                   font-size: 14px;
+                 }
+            .nick{
+                font-family: 微软雅黑;
+                font-size: 24px;
+                color:brown;
+            }
+            .content{
+                font-family: 微软雅黑;
+                font-size: 14px;
+                color:rgb(114, 192, 223); 
+            }
+            .time{
+                font-family: 微软雅黑;
+                font-size: 14px;
+            }           
+        </style>
+    </head>
+    <body>
+        <h class="txtCenter">
+            <span>欢迎来到留言板！</span>
+        </h>
+            <br/>
+            <a href="E:\百步梯学习工作\holidaytask\login.html" target="_self">返回登录</a>
+    </br>
+    <br/> <br/>&nbsp;
+    <div1>
+        <textarea name="note" id="note"></textarea>
+    </div1>
+        <br />&nbsp;
+        <input type="button" class="btn btn-primary" onclick = "onSummit()" value="发表" id="submit"/>
+        <br/><br/>
+    <hr/>
+        <p>历史留言内容</p>
+        <ul id="message">
+            <li>
+                <h1 id="nick"></h1>
+                <p id="content"></p>
+                <footer id="time"></footer>
+            </li>
+        </ul>
+    </body>
+</html>

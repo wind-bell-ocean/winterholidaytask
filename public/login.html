@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>留言板_登录</title>
+        <script src="login.js"></script>
+        <style type="text/css">
+        body    {
+                 margin: 0px;
+                 padding: 0px;
+                 background-color: rgb(146, 215, 243); 
+                 font-family: 微软雅黑;
+                 font-size: 14px;
+                }
+        h  { 
+             color:rgb(230, 151, 48);
+             font-size:35px;
+             font-weight: bold;
+            } 
+        .txtCenter{ text-align:center;  } 
+        p{ font-size:15px; }
+        span{ color:rgb(112, 185, 89); } 
+        .input_box  {
+                        width:350px;
+                        padding-bottom: 15px;
+                        margin: 0 auto;
+                        overflow: hidden;
+                        text-align: center;
+                    }  
+        </style>
+    </head>
+    <body>
+        <h>
+            <div class="txtCenter">你好，同学！欢迎登录留言板！</div>
+        </h>
+        <br/>
+        <div class="txtCenter">
+            <form  method="post"  action="save.php">
+                <div class="input_box">
+                    <label for="username"><span>用户名:</span></label>
+                    <input type="text" name="username" id="username" value="" placeholder="请输入用户名" />
+                </div>
+                 <br/>
+                 <div class="input_box">
+                    <label for="password"><span>密码:</span></label>
+                    <input type="password" name="pass" id="password" value="" placeholder="请输入密码" />
+                </div>
+                <br/>&nbsp;&nbsp;
+                <div id="reflect_box">
+                   <br>
+                </div>
+               <div class="input_box">
+                  <button type="button" class="btn btn-primary" onclick="fnLogin()" id="submit" >登陆</button>
+               &nbsp;&nbsp;&nbsp;&nbsp;
+                  <input type="reset" value="重置" name="reset" />
+               </div>
+               </br>
+               </br>
+               <div class="txtCenter"><p1>还没有账号？快创建一个吧！</p1></div>
+               </br>
+               <div class="input_box">
+                <a href="E:\百步梯学习工作\holidaytask\register.html"><input type="button" class="btn btn-info" name="regist" value="注册"></a>
+               </div>
+               </br>
+               <div class="txtCenter"><p2>跳过，先看看</p2></div>
+               </br>
+               <div class="txtCenter">
+                <a href="E:\百步梯学习工作\holidaytask\留言板.html" target="_self">游客进入看看留言板的世界</a>
+                </div> 
+            </form>
+        </div>
+        <footer>
+            <p>特别说明： 若无账号登录，以游客身份进入留言板时可浏览留言，但不可以发表留言。祝愿体验愉快！</p>
+        </footer>    
+    </body>
+</html>
